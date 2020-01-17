@@ -324,7 +324,7 @@ def CUD_table(cursor,t_name,query,cnx,autocommit=True):
             print(err.msg + ".")
             exit(1)
         else:
-            print(err.errno + ": " + err.msg + ".")
+            print(str(err.errno) + ": " + err.msg + ".")
             exit(1)
 
 def bulk_CUD_table(cursor, operation, cnx, 
