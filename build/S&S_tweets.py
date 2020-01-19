@@ -58,6 +58,7 @@ class MyStreamListener(tweepy.StreamListener):
                 user_loc = user_loc.replace("\"", "")
                 user_loc = re.sub('[\'\"\\\"\\\']+', '`', user_loc)
                 user_loc = re.sub(r'[^\\\\$]+', '|', user_loc)
+                user_loc = user_loc.replace("\\", "|")
             else: user_loc = None      
             user_input = f"""INSERT INTO {self._t_users} VALUES({user_id},'{user_name}',
                          '{n_time}',\'{user_desc}\',{verified},{follower_count},
